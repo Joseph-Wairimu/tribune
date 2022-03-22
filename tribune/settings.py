@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-r^b*xnw&1s$*mti$&e0$$g8!wz2h9l*q-!v6g-742#opjh*d+6
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+SITE_ID = 1
 
 # Application definition
 
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     
     
 ]
-SITE_ID = 1
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

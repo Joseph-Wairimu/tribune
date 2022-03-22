@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime as dt
+import datetime as dt
 # Create your models here.
 class UrlDateConverter:
     regex= '\d{4}-\d{2}-\d{2}'
@@ -34,4 +35,11 @@ class Article(models.Model):
     post = models.TextField()
     editor = models.ForeignKey(Editor,on_delete=models.CASCADE,)
     tags = models.ManyToManyField(tags) 
-    pub_date = models.DateTimeField(auto_now_add=True)      
+    pub_date = models.DateTimeField(auto_now_add=True)  
+
+    @classmethod
+    def todays_news(cls):
+        today = dt.date.today()
+        news = cls.objects.filter(pub_date__date = today)
+        return news
+
